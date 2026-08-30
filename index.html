@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeDrive Car Rentals</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;background:#f5f7fa;color:#172033}
+header{background:#101828;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-size:24px;font-weight:800}.wa{background:#20c56b;color:white;text-decoration:none;padding:11px 17px;border-radius:10px;font-weight:bold}
+.hero{padding:75px 7%;background:linear-gradient(120deg,#101828,#243b53);color:white}.hero h1{font-size:48px;max-width:700px;margin-bottom:14px}.hero p{font-size:19px;color:#d5dbe5;max-width:600px;margin-bottom:28px}
+.btn{display:inline-block;background:#20c56b;color:white;text-decoration:none;padding:14px 22px;border-radius:10px;font-weight:bold}
+section{padding:55px 7%}.title{text-align:center;margin-bottom:30px}.title h2{font-size:32px}.cars{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 7px 25px #00000012}.carpic{height:180px;background:#dce3ea;display:flex;align-items:center;justify-content:center;font-size:70px}.info{padding:20px}.info h3{margin-bottom:8px}.price{font-size:22px;font-weight:bold;margin:13px 0}.book{width:100%;border:0;cursor:pointer}
+.form{max-width:650px;margin:auto;background:white;padding:25px;border-radius:16px;box-shadow:0 7px 25px #00000012}.form input,.form select,.form textarea{width:100%;padding:13px;margin:7px 0 13px;border:1px solid #d0d5dd;border-radius:9px;font-size:15px}.form button{width:100%;border:0;cursor:pointer}
+footer{text-align:center;padding:25px;background:#101828;color:#d5dbe5}
+@media(max-width:600px){.hero h1{font-size:36px}header{padding:15px 5%}section,.hero{padding-left:5%;padding-right:5%}}
+</style>
+</head>
+<body>
+<header><div class="logo">PrimeDrive Car Rentals</div><a class="wa" href="https://wa.me/923315843950" target="_blank">WhatsApp</a></header>
+
+<div class="hero">
+<h1>Your Journey, Our Cars.</h1>
+<p>Reliable cars with a driver included. Choose your car and send a booking request directly on WhatsApp.</p>
+<a class="btn" href="#cars">View Available Cars</a>
+</div>
+
+<section id="cars">
+<div class="title"><h2>Available Cars</h2><p>Car models from 2015 to 2023 • Daily rental available.</p></div>
+<div class="cars">
+<div class="card"><div class="carpic">🚗</div><div class="info"><h3>Car 01</h3><p>Model 2015–2023 • Comfortable • 5 Seats</p><div class="price">Rs. 7,000 / day</div><a class="btn book" href="#booking">Book This Car</a></div></div>
+<div class="card"><div class="carpic">🚘</div><div class="info"><h3>Car 02</h3><p>Model 2015–2023 • Comfortable • 5 Seats</p><div class="price">Rs. 7,000 / day</div><a class="btn book" href="#booking">Book This Car</a></div></div>
+<div class="card"><div class="carpic">🚙</div><div class="info"><h3>Car 03</h3><p>Model 2015–2023 • Spacious • 7 Seats</p><div class="price">Rs. 7,000 / day</div><a class="btn book" href="#booking">Book This Car</a></div></div>
+</div>
+</section>
+
+<section id="booking">
+<div class="title"><h2>Book a Car</h2><p>Fill in your details and send the request on WhatsApp.</p></div>
+<form class="form" onsubmit="sendWhatsApp(event)">
+<label>Your Name</label><input id="name" required placeholder="Enter your name">
+<label>Phone Number</label><input id="phone" required placeholder="03XXXXXXXXX">
+<label>Select Car</label><select id="car"><option>Car 01</option><option>Car 02</option><option>Car 03</option></select><label>Driver</label><select id="driver"><option>Yes — Driver Included</option></select>
+<label>Pickup Date</label><input id="date" type="date" required>
+<label>Message</label><textarea id="msg" rows="3" placeholder="Pickup location / other details"></textarea>
+<button class="btn" type="submit">Send Booking on WhatsApp</button>
+</form>
+</section>
+
+<footer>© 2026 PrimeDrive Car Rentals • WhatsApp: 0331 5843950</footer>
+<script>
+function sendWhatsApp(e){
+ e.preventDefault();
+ const n=document.getElementById('name').value,p=document.getElementById('phone').value,
+ c=document.getElementById('car').value,d=document.getElementById('date').value,
+ dr=document.getElementById('driver').value,m=document.getElementById('msg').value;
+ const text=`Hello PrimeDrive Car Rentals,%0A%0AI want to book:%0ACar: ${encodeURIComponent(c)}%0ADriver: ${encodeURIComponent(dr)}%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0APickup Date: ${encodeURIComponent(d)}%0ADetails: ${encodeURIComponent(m)}`;
+ window.open('https://wa.me/923315843950?text='+text,'_blank');
+}
+</script>
+</body>
+</html>
